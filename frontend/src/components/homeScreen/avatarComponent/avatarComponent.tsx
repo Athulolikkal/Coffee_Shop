@@ -1,17 +1,31 @@
-import { Avatar, Box, Container, Typography } from '@mui/material'
-import React from 'react'
+import { Avatar, Box, Container, Typography } from "@mui/material";
+import { AvatarWrapBox, TitleWrapBox } from "./style";
 
 const AvatarComponet = () => {
   return (
-    <Container sx={{ margin: 0, padding: 0 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'end', paddingTop: '50px', paddingRight: '20px' }}>
-        <Avatar alt="userImg" sx={{ width: 60, height: 60 }} src="https://as1.ftcdn.net/v2/jpg/04/66/47/56/1000_F_466475672_vMHZN7YSAxbDU9xxygsBOZ2S57zDAUv7.jpg" />
-      </Box>
-      <Box>
-        <Typography sx={{ fontSize: '30px', lineHeight: 1, fontFamily: 'Raleway', fontWeight: 600 }}>Find a coffee shope anywhere</Typography>
-      </Box>
+    <Container sx={{ marginLeft: "23px", padding: 0,width:'100%' }}>
+      <AvatarWrapBox>
+        <Avatar
+          alt="userImg"
+          sx={{ width: "50px", height: "50px" }}
+          src="https://as1.ftcdn.net/v2/jpg/04/66/47/56/1000_F_466475672_vMHZN7YSAxbDU9xxygsBOZ2S57zDAUv7.jpg"
+        />
+      </AvatarWrapBox>
+      <TitleWrapBox>
+        <Typography
+          sx={{
+            fontSize: "25px",
+            lineHeight: "29.35px",
+            fontFamily: "Raleway",
+            fontWeight: 600,
+            color: "#003B40",
+          }}
+        >
+          Find a coffee shope anywhere
+        </Typography>
+      </TitleWrapBox>
     </Container>
-  )
-}
+  );
+};
 
-export default AvatarComponet
+export default AvatarComponet;
