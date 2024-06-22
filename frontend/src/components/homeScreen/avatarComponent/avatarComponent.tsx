@@ -1,9 +1,9 @@
-import { Avatar, Box, Container, Typography } from "@mui/material";
+import { Avatar,Typography } from "@mui/material";
 import { AvatarWrapBox, TitleWrapBox } from "./style";
 
 const AvatarComponet = () => {
   return (
-    <Container sx={{ marginLeft: "23px", padding: 0,width:'100%' }}>
+    <div style={{ marginLeft: "23px", padding: 0, }}>
       <AvatarWrapBox>
         <Avatar
           alt="userImg"
@@ -24,7 +24,7 @@ const AvatarComponet = () => {
           Find a coffee shope anywhere
         </Typography>
       </TitleWrapBox>
-    </Container>
+    </div>
   );
 };
 

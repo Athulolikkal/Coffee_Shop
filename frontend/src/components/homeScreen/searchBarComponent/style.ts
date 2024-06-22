@@ -1,4 +1,4 @@
-import { Box, InputBase, alpha, styled } from "@mui/material";
+import { Box, InputBase, styled } from "@mui/material";
 
 export const SearchIconWrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -43,7 +43,7 @@ export const Search = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const SearchButton = styled(Box)(({ theme }) => ({
+export const SearchButton = styled(Box)(() => ({
   borderRadius: "20px",
   width: "58px",
   height: "58px",

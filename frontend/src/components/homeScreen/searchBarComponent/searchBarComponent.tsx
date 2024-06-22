@@ -1,4 +1,4 @@
-import { Box, Container, Typography, IconButton } from "@mui/material";
+import { Box, Container,} from "@mui/material";
 import {
   Search,
   SearchButton,

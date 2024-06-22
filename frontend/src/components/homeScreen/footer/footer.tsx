@@ -1,27 +1,25 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
+import { IconButton, Toolbar, } from '@mui/material'
+import HomeIcon from '@mui/icons-material/HomeOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+
 
 const Footer = () => {
+  const [selected, setSelected] = useState<number>(0)
+  const buttons = [HomeIcon, FavoriteBorderOutlinedIcon, BookmarkBorderOutlinedIcon, PersonOutlineOutlinedIcon,]
   return (
-    <AppBar position="fixed" color="primary" sx={{ top: '53rem', bottom: 0 ,height:'114px'}}>
-    <Toolbar>
-      <IconButton color="inherit" aria-label="open drawer">
-        <MenuIcon />
-      </IconButton>
-  
-      <Box sx={{ flexGrow: 1 }} />
-      <IconButton color="inherit">
-        <SearchIcon />
-      </IconButton>
-      <IconButton color="inherit">
-        <MoreIcon />
-      </IconButton>
-    </Toolbar>
-  </AppBar>
+    <div style={{ width: '100%', padding: 0, margin: 0 }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        {buttons.map((Btn, index) => (
+          <IconButton color="inherit" key={index} onClick={() => setSelected(index)}>
+            <Btn sx={{ color: selected === index ? 'white' : 'black', backgroundColor: selected === index ? '#003B40' : 'white', padding: selected === index ? '5px' : '', fontSize: selected === index ? '40px' : '20px', borderRadius: '27px' }} />
+          </IconButton>
+        ))}
+      </Toolbar>
+    </div>
 
-    
   )
 }
 
