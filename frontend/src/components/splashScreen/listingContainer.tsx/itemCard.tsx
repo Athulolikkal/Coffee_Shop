@@ -4,15 +4,21 @@ import StarIcon from '@mui/icons-material/Star';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import withImageLoader from '../../../HOC/withImageLoader';
+import ImgComponent from '../../imageComponet/imageComponent';
 
+const WithImageLoader = withImageLoader(ImgComponent)
 const ItemCard: React.FC<any> = ({ item }) => {
     const [likedCoffee, setLikedCoffee] = useState<boolean>(false)
+    const navigate = useNavigate()
+    
     return (
         <Box sx={{ position: 'relative', cursor: 'pointer' }}>
-            <Card sx={{ width: '160px', marginTop: '10px', backgroundColor: 'white', borderRadius: '20px', boxShadow: 0 }}>
+            <Card sx={{ width: '160px', marginTop: '10px', backgroundColor: 'white', borderRadius: '20px', boxShadow: 0 }} onClick={() => navigate('/shop')}>
                 {/* Image Container Box */}
                 <Box sx={{ height: '150px', borderRadius: '30px', overflow: 'hidden' }}>
-                    <img
+                    <WithImageLoader
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGtlDheJZ5eLJMAzbiblEQWf7FrOIllGV4MA&s"
                         alt={`Coffee shop ${item}`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}

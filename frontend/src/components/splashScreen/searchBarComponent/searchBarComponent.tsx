@@ -1,4 +1,4 @@
-import { Box, Container,} from "@mui/material";
+import { Box, Container, } from "@mui/material";
 import {
   Search,
   SearchButton,
@@ -17,7 +17,7 @@ const SearchBarComponent = () => {
       }}
     >
       {/* search box */}
-      <Box sx={{width:'80%',}}>
+      <Box sx={{ width: '80%', }}>
         <Search>
           <SearchIconWrapper>
             <SearchIcon sx={{ color: "#A4ADAE" }} />
@@ -29,6 +29,7 @@ const SearchBarComponent = () => {
               fontFamily: "Raleway",
               fontSize: "16px",
               fontWeight: 600,
+              color: '#003B40',
             }}
             placeholder="Search"
             inputProps={{ "aria-label": "search" }}
