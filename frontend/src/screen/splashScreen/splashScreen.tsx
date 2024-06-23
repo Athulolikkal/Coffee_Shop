@@ -1,8 +1,8 @@
 import { Box, } from "@mui/material";
-import AvatarComponet from "../../components/homeScreen/avatarComponent/avatarComponent";
-import SearchBarComponent from "../../components/homeScreen/searchBarComponent/searchBarComponent";
-import ListingContainer from "../../components/homeScreen/listingContainer.tsx/listingContainer";
-import Footer from "../../components/homeScreen/footer/footer";
+import AvatarComponet from "../../components/splashScreen/avatarComponent/avatarComponent";
+import SearchBarComponent from "../../components/splashScreen/searchBarComponent/searchBarComponent";
+import ListingContainer from "../../components/splashScreen/listingContainer.tsx/listingContainer";
+import Footer from "../../components/splashScreen/footer/footer";
 
 const SplashScreen = () => {
   return (

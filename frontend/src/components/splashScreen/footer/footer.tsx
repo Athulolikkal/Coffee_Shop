@@ -14,7 +14,7 @@ const Footer = () => {
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
         {buttons.map((Btn, index) => (
           <IconButton color="inherit" key={index} onClick={() => setSelected(index)}>
-            <Btn sx={{ color: selected === index ? 'white' : 'black', backgroundColor: selected === index ? '#003B40' : 'white', padding: selected === index ? '5px' : '', fontSize: selected === index ? '40px' : '20px', borderRadius: '27px' }} />
+            <Btn sx={{ transition: 'all 0.3s ease',  color: selected === index ? 'white' : 'black', backgroundColor: selected === index ? '#003B40' : 'white', padding: selected === index ? '5px' : '', fontSize: selected === index ? '40px' : '20px', borderRadius: '27px' }} />
           </IconButton>
         ))}
       </Toolbar>
