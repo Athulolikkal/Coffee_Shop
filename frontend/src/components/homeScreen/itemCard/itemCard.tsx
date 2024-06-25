@@ -5,10 +5,15 @@ import { AddButton, TextBox } from './style'
 import AddIcon from '@mui/icons-material/Add';
 import ImgComponent from '../../imageComponet/imageComponent';
 import withImageLoader from '../../../HOC/withImageLoader';
+import { IItemDetails } from '../../../type';
 
 const ImageWithLoader = withImageLoader(ImgComponent);
 
-const ItemCard: React.FC<any> = ({ itemInfo }) => {
+interface Props {
+    itemInfo: IItemDetails
+}
+
+const ItemCard: React.FC<Props> = ({ itemInfo }) => {
 
     return (
         <div style={{ position: 'relative' }} >
@@ -24,9 +29,9 @@ const ItemCard: React.FC<any> = ({ itemInfo }) => {
                 </Box>
                 {/* item texts */}
                 <TextBox>
-                    <Typography sx={{ fontFamily: 'Raleway', fontSize: '16px', fontWeight: 700, marginBottom: '5px' }}>{itemInfo.itemName}</Typography>
+                    <Typography sx={{ fontFamily: 'Raleway', fontSize: '16px', fontWeight: 700, marginBottom: '5px' }}>{itemInfo.name}</Typography>
                     <Typography sx={{ fontFamily: 'Raleway', fontSize: '14px', fontWeight: 400, marginBottom: '5px' }}>{itemInfo.description}</Typography>
-                    <Typography sx={{ fontFamily: 'Raleway', fontSize: '14px', fontWeight: 600 }}>${itemInfo.rate}</Typography>
+                    <Typography sx={{ fontFamily: 'Raleway', fontSize: '14px', fontWeight: 600 }}>${itemInfo.price}</Typography>
                 </TextBox>
             </Box>
             {/* add button */}

@@ -7,28 +7,32 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import withImageLoader from '../../../HOC/withImageLoader';
 import ImgComponent from '../../imageComponet/imageComponent';
+import { IshopDetails } from '../../../type';
 
+interface Props {
+    item?: IshopDetails
+}
 const WithImageLoader = withImageLoader(ImgComponent)
-const ItemCard: React.FC<any> = ({ item }) => {
+const ItemCard: React.FC<Props> = ({ item }) => {
     const [likedCoffee, setLikedCoffee] = useState<boolean>(false)
     const navigate = useNavigate()
-    
+
     return (
         <Box sx={{ position: 'relative', cursor: 'pointer' }}>
-            <Card sx={{ width: '160px', marginTop: '10px', backgroundColor: 'white', borderRadius: '20px', boxShadow: 0 }} onClick={() => navigate('/shop')}>
+            <Card sx={{ width: '160px', marginTop: '10px', backgroundColor: 'white', borderRadius: '20px', boxShadow: 0 }} onClick={() => navigate('/shop', { state: item })}>
                 {/* Image Container Box */}
                 <Box sx={{ height: '150px', borderRadius: '30px', overflow: 'hidden' }}>
                     <WithImageLoader
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGtlDheJZ5eLJMAzbiblEQWf7FrOIllGV4MA&s"
-                        alt={`Coffee shop ${item}`}
+                        src={item ? item.image : ''}
+                        alt={`Coffee shop ${item?.name}`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}
                     />
                 </Box>
-                <Typography sx={{ marginLeft: '10px', marginTop: '10px', fontFamily: "Raleway", fontSize: '16px', fontWeight: 700, color: '#003B40' }}>{item}</Typography>
+                <Typography sx={{ marginLeft: '10px', marginTop: '10px', fontFamily: "Raleway", fontSize: '16px', fontWeight: 700, color: '#003B40' }}>{item?.name}</Typography>
                 {/* Rating and Review */}
                 <Box sx={{ display: 'flex', marginLeft: '10px' }}>
                     <StarIcon sx={{ fontSize: '20px', color: '#FDCB6E' }} />
-                    <Typography sx={{ fontFamily: "Raleway", fontSize: '14px', fontWeight: 600, color: '#003B40' }}>4.5<span style={{ marginLeft: '5px', color: 'gray', opacity: 0.5 }}>1200 reviews</span></Typography>
+                    <Typography sx={{ fontFamily: "Raleway", fontSize: '14px', fontWeight: 600, color: '#003B40' }}>{item?.rating}<span style={{ marginLeft: '5px', color: 'gray', opacity: 0.5 }}>{item?.review} reviews</span></Typography>
                 </Box>
                 <Typography sx={{ marginLeft: '10px', marginBottom: '10px', fontFamily: "Raleway", fontSize: '14px', fontWeight: 600, color: '#003B40' }}>3.8 miles</Typography>
 

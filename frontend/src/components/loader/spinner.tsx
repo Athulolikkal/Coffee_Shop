@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import { CSSProperties, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GridLoader } from "react-spinners";
+import { getAllShopDetails } from "../../api/api";
 
 
 const override: CSSProperties = {
@@ -15,12 +16,12 @@ const override: CSSProperties = {
 function Spinner() {
     const navigate = useNavigate()
     useEffect(() => {
-        const timer = setTimeout(() => {
-            navigate('/coffee');
-        }, 2000);
-
-        return () => clearTimeout(timer);
-    }, [navigate]);
+        const fetchAllShops = async () => {
+            const allDetails = await getAllShopDetails()
+            navigate('/coffee', {state:allDetails})
+        }
+        fetchAllShops()
+    }, []);
 
 
     return (
@@ -43,7 +44,7 @@ function Spinner() {
                     marginTop: '10px'
                 }}
             >
-                find the best coffee
+                find your coffee
             </Typography>
 
         </div>

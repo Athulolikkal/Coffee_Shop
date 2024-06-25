@@ -7,8 +7,20 @@ import {
 } from "./style";
 import SearchIcon from "@mui/icons-material/Search";
 import TuneIcon from "@mui/icons-material/TuneSharp";
+import { IshopDetails } from "../../../type";
+import { getShopDetailsByName } from "../../../api/api";
 
-const SearchBarComponent = () => {
+interface Props {
+  setDetails: React.Dispatch<React.SetStateAction<[] | IshopDetails[]>>,
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const SearchBarComponent: React.FC<Props> = ({ setDetails, setLoading }) => {
+  const onSearch = async (searchValue: string) => {
+    setLoading(true)
+    const newDetailsResp = await getShopDetailsByName(searchValue)
+    setDetails(newDetailsResp)
+    setLoading(false)
+  }
   return (
     <Container
       sx={{
@@ -33,11 +45,12 @@ const SearchBarComponent = () => {
             }}
             placeholder="Search"
             inputProps={{ "aria-label": "search" }}
+            onChange={(e) => onSearch(e.target.value)}
           />
         </Search>
       </Box>
       {/* icon button section */}
-      <SearchButton>
+      <SearchButton >
         <TuneIcon sx={{ color: "white" }} />
       </SearchButton>
     </Container>

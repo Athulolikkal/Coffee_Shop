@@ -1,6 +1,7 @@
 import { Avatar,Typography } from "@mui/material";
 import { AvatarWrapBox, TitleWrapBox } from "./style";
 
+
 const AvatarComponet = () => {
   return (
     <div style={{ marginLeft: "23px", padding: 0, }}>
